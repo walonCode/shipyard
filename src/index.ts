@@ -1,1 +1,3 @@
-console.log("Hello via Bun!");
+import app from "./server";
+
+export default app;

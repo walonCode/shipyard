@@ -1,47 +1,49 @@
 {
-  "name": "shipyard",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "dev":"bun --hot src/index.ts",
-    "start":"bun dist/index.js",
-    "build":"tsc",
-    "format": "bunx biome check --write --unsafe"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.3.13",
-    "@types/bun": "latest",
-    "@types/cookie-parser": "^1.4.10",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "drizzle-kit": "^0.31.8"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "homepage": "https://github.com/walonCode/shipyard#README",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/walonCode/shipyard"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Mohamed Lamin Walon-Jalloh --- walonCode"
-  },
-  "keywords": [
-    "devops",
-    "backend-engineering",
-    "docker",
-    "bun"
-  ],
-  "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.6",
-    "drizzle-orm": "^0.45.1",
-    "express": "^5.2.1",
-    "helmet": "^8.1.0",
-    "winston": "^3.19.0"
-  }
+	"name": "shipyard",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "bun --hot src/index.ts",
+		"start": "bun dist/index.js",
+		"build": "tsc",
+		"format": "bunx biome check --write --unsafe"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.13",
+		"@types/bun": "latest",
+		"@types/cookie-parser": "^1.4.10",
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.6",
+		"@types/morgan": "^1.9.10",
+		"drizzle-kit": "^0.31.8"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"homepage": "https://github.com/walonCode/shipyard#README",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/walonCode/shipyard"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Mohamed Lamin Walon-Jalloh --- walonCode"
+	},
+	"keywords": [
+		"devops",
+		"backend-engineering",
+		"docker",
+		"bun"
+	],
+	"dependencies": {
+		"@neondatabase/serverless": "^1.0.2",
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.6",
+		"drizzle-orm": "^0.45.1",
+		"express": "^5.2.1",
+		"helmet": "^8.1.0",
+		"morgan": "^1.10.1",
+		"winston": "^3.19.0"
+	}
 }
