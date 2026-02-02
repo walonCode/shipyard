@@ -1,6 +1,10 @@
 import app from "./app";
 import logger from "./config/logger";
+import authRouter from "./routes/auth.route"
 
+app.get("/", async (_req,res) => {
+  return res.status(200).json({ success:true})
+})
 app.get("/healthz", async (_req, res) => {
   logger.info({ message:"Hello from /healthz"})
 	return res.status(200).json({
@@ -8,6 +12,9 @@ app.get("/healthz", async (_req, res) => {
 		message: "Server is healthy",
 	});
 });
+
+//auth router
+app.use("/api/v1/auth", authRouter)
 
 app.listen(3000, () => {
 	console.log(`server is running on http://localhost:3000`);
