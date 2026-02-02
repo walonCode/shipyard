@@ -1,19 +1,25 @@
-#working base image and directory
-FROM oven/bun:latest
+# ----------------- Build Stage -------------------------- #
+FROM oven/bun:latest AS build
 WORKDIR /app
 
 # install the dependecies
-COPY  ./package.*  ./
-RUN  bun install
+COPY  ./package.json bun.lock  ./
+RUN  bun install --frozen-lockfile
 
 #copy the files into the ./app
 COPY . .
 RUN bun run build 
+
+# ----------------- Running Stage ------------------- #
+
+FROM oven/bun:latest
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+
 EXPOSE 3000
 
-#set up a user
-RUN adduser app
+RUN useradd -m app
 USER app
 
-# the start image command
-CMD  [ "bun", "run", "start" ]
+CMD ["bun", "run", "start"]
