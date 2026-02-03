@@ -15,11 +15,14 @@ RUN bun run build
 FROM oven/bun:latest
 WORKDIR /app
 
+RUN useradd -m app
+
+RUN mkdir -p /app/logs && chown -R app:app /app
+
 COPY --from=build /app/dist ./dist
 
 EXPOSE 3000
 
-RUN useradd -m app
 USER app
 
-CMD ["bun", "run", "start"]
+CMD ["bun", "dist/index.js"]

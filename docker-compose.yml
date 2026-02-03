@@ -1,0 +1,12 @@
+services:
+  api_server:
+    image: walonCode1/shipyard:latest
+    working_dir: /app
+    container_name: shipyard
+    restart: always
+    stdin_open: true
+    tty: true
+    env_file: 
+       .env
+    ports:
+      - 3000:3000
