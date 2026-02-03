@@ -14,9 +14,9 @@ export async function getUser(req: Request, res: Response) {
 				success: false,
 				error: "user not found",
 			});
-			return;
 		}
 
+		//@ts-ignore
 		const { password, ...newUser } = user;
 
 		res.status(200).json({
@@ -60,9 +60,9 @@ export async function updateUser(req: Request, res: Response) {
 				success: false,
 				error: "user not found",
 			});
-			return;
 		}
 
+		//@ts-ignore
 		const { password, ...responseUser } = updatedPerson;
 
 		res.status(200).json({

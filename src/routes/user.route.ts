@@ -5,10 +5,10 @@ import { authMiddleware } from "../middleware/auth.middleware";
 
 const router = Router();
 
-router.use();
+router.use(authMiddleware)
 
-router.get("/", authMiddleware, getUser);
-router.patch("/", authMiddleware, updateUser);
-router.delete("/", authMiddleware, deleteUser);
+router.get("/", getUser);
+router.patch("/", updateUser);
+router.delete("/", deleteUser);
 
 export default router;
