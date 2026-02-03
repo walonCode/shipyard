@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 //middleware
+app.disable("x-powered-by")
 app.use(
 	helmet({
 		xPoweredBy: false,
