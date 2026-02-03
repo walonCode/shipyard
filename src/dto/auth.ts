@@ -1,5 +1,6 @@
 export interface NewUser {
-  username: string,
-  email: string,
-  createdAt:Date
+	username: string;
+	email: string;
+	role: string;
+	createdAt: Date;
 }

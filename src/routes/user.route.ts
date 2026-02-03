@@ -1,11 +1,14 @@
 import { Router } from "express";
 
-const router = Router()
+import { deleteUser, getUser, updateUser } from "../controller/user.controller";
+import { authMiddleware } from "../middleware/auth.middleware";
 
-router.use()
+const router = Router();
 
-router.get("/",)
-router.patch("/",)
-router.delete("/",)
+router.use();
 
-export default router
+router.get("/", authMiddleware, getUser);
+router.patch("/", authMiddleware, updateUser);
+router.delete("/", authMiddleware, deleteUser);
+
+export default router;
