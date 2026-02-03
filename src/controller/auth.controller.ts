@@ -38,8 +38,9 @@ export async function login(req: Request, res: Response,) {
     res.cookie("access_token", token, {
       maxAge: 3600,
       httpOnly: true,
-      sameSite: true,
-      secure:true
+      sameSite: "lax",
+      secure: true,
+      path:"/"
     })
     
     logger.info("user login successful")
@@ -95,7 +96,10 @@ export async function signup(req:Request, res:Response) {
     res.cookie("access_token", token, {
       maxAge: 3600,
       httpOnly: true,
-      secure:true
+      secure: true,
+      sameSite: "lax",
+      domain:".url.com",
+      path:"/",
     })
     
     logger.info("user signup successful")
@@ -113,6 +117,31 @@ export async function signup(req:Request, res:Response) {
       data: {
         user
       }
+    })
+  } catch (err) {
+    logger.error(err)
+    res.status(500).json({
+      success: false,
+      error:"something went wrong"
+    })
+  }
+}
+
+
+export async function logout(req: Request, res: Response) {
+  try { 
+    
+    res.clearCookie("access_token", {
+      httpOnly: true,
+      secure: true,
+      domain:".url.com",
+      sameSite:"lax",
+      path:"/",
+    })
+    
+    res.status(200).json({
+      success: true,
+      message:"logout successful"
     })
   } catch (err) {
     logger.error(err)
